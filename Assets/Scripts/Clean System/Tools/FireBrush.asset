@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5bfae50a3a73c4b8fd5cb648084deb, type: 3}
+  m_Name: FireBrush
+  m_EditorClassIdentifier: 
+  toolType: 1
+  cleaningRadius: 0.5
+  dirtBrush: {fileID: 2800000, guid: 747d430c0dcc0c44d94de42fb2825a13, type: 3}
+  distanceCheck: 7
