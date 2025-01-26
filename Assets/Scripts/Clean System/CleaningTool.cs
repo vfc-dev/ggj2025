@@ -6,7 +6,7 @@ public class CleaningTool : MonoBehaviour
 {
     public LayerMask cleanableLayer;
     private Camera mainCam;
-    [SerializeField] private ParticleSystem ps_Basic;
+    public ParticleSystem ps_Basic;
     public CleaningToolSO tool;
     private void Awake()
     {
@@ -18,6 +18,11 @@ public class CleaningTool : MonoBehaviour
     {
         if (Input.GetMouseButton(0)) // Left mouse button for cleaning
         {
+            if (DefaultAudios.Instance)
+            {
+                DefaultAudios.Instance.StartBubbleSpell();
+            }
+
             if(ps_Basic!=null)
             ps_Basic.Play();
 
@@ -30,6 +35,11 @@ public class CleaningTool : MonoBehaviour
         }
         if(Input.GetMouseButtonUp(0))
         {
+            if (DefaultAudios.Instance)
+            {
+                DefaultAudios.Instance.StopBubbleSpell();
+            }
+
             if (ps_Basic != null)
                 ps_Basic.Stop();
         }

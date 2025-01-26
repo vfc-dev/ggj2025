@@ -52,6 +52,7 @@ public class IcedObject : Cleanable
             Destroy(_highlightEffect, 2);
             Destroy(this, 2);
             IsCleaned = true;
+            onClean.Invoke();
         }
     }
 }

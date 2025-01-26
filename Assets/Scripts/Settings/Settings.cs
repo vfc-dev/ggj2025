@@ -44,9 +44,23 @@ public class Settings : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        Debug.Log(Screen.resolutions);
+        
         _instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
+    {
+        Resolution[] res = Screen.resolutions;
+
+        Debug.Log(res);
+
+        for(int i = 0; i < res.Length; i++)
+        {
+            Debug.Log(res[i].width + "x" + res[i].height);
+        }
+
+        Debug.Log(res.Length);
     }
 
     public bool Windowed

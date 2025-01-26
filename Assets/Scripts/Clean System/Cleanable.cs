@@ -1,6 +1,7 @@
 using UnityEngine;
 using HighlightPlus;
 using AudioSystem;
+using UnityEngine.Events;
 
 //using Color = UnityEngine.Color;
 public class Cleanable : MonoBehaviour
@@ -20,6 +21,8 @@ public class Cleanable : MonoBehaviour
     private bool cleaned = false;
     HighlightEffect highlightEffect;
     //private Color colorHighlight = new Color(0f,0.7f,1f,0.7f);
+
+    public UnityEvent onClean;
 
     public virtual void Start()
     {
@@ -157,14 +160,20 @@ public class Cleanable : MonoBehaviour
             {
                 highlightEffect.HitFX(GameMaster.Instance.colorHighlight, 1f);
             }
-            SoundManager.Instance.CreateSound()
+            /*SoundManager.Instance.CreateSound()
             .WithSoundData(GameMaster.Instance.cleanedSFX) //If has soundData
             .WithPosition(transform.position)  //When its attached to a especific position
-            .Play();
+            .Play();*/
+
+            if (DefaultAudios.Instance)
+            {
+                DefaultAudios.Instance.PlayClearObject();
+            }
 
             Destroy(highlightEffect, 2);
             Destroy(this, 2);
             cleaned = true;
+            onClean.Invoke();
         }
     }
 
